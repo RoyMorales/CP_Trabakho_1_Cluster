@@ -22,14 +22,14 @@ static float *dens, *dens_prev;
 // Function to allocate simulation data
 int allocate_data() {
   int size = (M + 2) * (N + 2) * (O + 2);
-  u = new float[size];
-  v = new float[size];
-  w = new float[size];
-  u_prev = new float[size];
-  v_prev = new float[size];
-  w_prev = new float[size];
-  dens = new float[size];
-  dens_prev = new float[size];
+  u = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  v = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  w = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  u_prev = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  v_prev = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  w_prev = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  dens = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
+  dens_prev = static_cast<float*>(aligned_alloc(32, size * sizeof(float)));
 
   if (!u || !v || !w || !u_prev || !v_prev || !w_prev || !dens || !dens_prev) {
     std::cerr << "Cannot allocate memory" << std::endl;
@@ -49,14 +49,14 @@ void clear_data() {
 
 // Free allocated memory
 void free_data() {
-  delete[] u;
-  delete[] v;
-  delete[] w;
-  delete[] u_prev;
-  delete[] v_prev;
-  delete[] w_prev;
-  delete[] dens;
-  delete[] dens_prev;
+  free(u);
+  free(v);
+  free(w);
+  free(u_prev);
+  free(v_prev);
+  free(w_prev);
+  free(dens);
+  free(dens_prev);
 }
 
 // Apply events (source or force) for the current timestep

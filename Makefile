@@ -1,4 +1,4 @@
-CPP = g++ -Wall -pg 
+CPP = g++ -Wall -pg -mavx -ftree-vectorize -msse4 -funroll-loops -O3 
 SRCS = main.cpp fluid_solver.cpp EventManager.cpp
 
 all:

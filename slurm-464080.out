@@ -1,0 +1,17 @@
+g++ -Wall -pg -mavx -ftree-vectorize -msse4  main.cpp fluid_solver.cpp EventManager.cpp -o fluid_sim
+Total density after 100 timesteps: 81981.3
+
+ Performance counter stats for './fluid_sim':
+
+   166,140,889,237      instructions              #    2.58  insn per cycle                                            
+    64,509,828,589      cycles                                                      
+       204,624,336      L1-dcache-load-misses                                       
+   166,140,889,237      inst_retired.any          #      0.4 CPI                    
+    64,509,828,544      cycles                                                      
+
+      22.282170189 seconds time elapsed
+
+      22.244073000 seconds user
+       0.004000000 seconds sys
+
+
