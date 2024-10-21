@@ -1,0 +1,15 @@
+g++ -Wall -pg  main.cpp fluid_solver.cpp EventManager.cpp -o fluid_sim
+Total density after 100 timesteps: 81981.3
+Total density after 100 timesteps: 81981.3
+Total density after 100 timesteps: 81981.3
+
+ Performance counter stats for './fluid_sim' (3 runs):
+
+   166,745,822,604      instructions              #    1.87  insn per cycle                                              ( +-  0.00% )
+    89,130,675,869      cycles                                                        ( +-  1.00% )
+     2,311,909,576      L1-dcache-load-misses                                         ( +-  0.04% )
+   166,745,822,604      inst_retired.any          #      0.5 CPI                      ( +-  0.00% )
+    89,130,675,803      cycles                                                        ( +-  1.00% )
+
+             70.26 +- 21.97 seconds time elapsed  ( +- 31.27% )
+
